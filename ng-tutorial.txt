@@ -1,1 +1,49 @@
 ng-tutorial
+E:\~Angular~\projects\ng-lesson\
+
+***
+
+добавить "strict": true
+
+.\tsconfig.json
+
+"compilerOptions": {    
+    "strict": true
+}
+
+тогда покажет ошибку, если
+let a: number;
+a = null; 
+
+и не покажет ошибку, если 
+let a: number | null;
+a = null; 
+
+***
+
+.\package.json
+
+базовые команды
+
+"scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+
+больше - https://angular.io/cli/serve
+
+***
+
+module (es6 стандарт для модуля, импорт, экспорт и т.д.)
+
+directive - (component - это специальная директива с шаблоном) -
+
+pipe
+
+service
+
+(01:01:48)
