@@ -47,3 +47,44 @@ pipe
 service
 
 (01:01:48)
+
+
+***
+
+E:\~Angular~\projects\ng-lesson\src\app\app.module.ts
+
+@NgModule({
+  declarations: [
+    AppComponent // let/const pipe/directive
+  ],
+  ...
+
+  bootstrap: [AppComponent] - точка входа
+
+***
+Интерполяция:
+
+{{ title }} - процесс вычисления выражения и приведение его к строке
+
+***
+
+ngx-mask
+
+https://www.npmjs.com/package/ngx-mask
+https://github.com/JsDaddy/ngx-mask/blob/develop/tslint.json
+
+этим заменить tslint
+
+теперь нужно явно ставить модификаторы доступа - public/private
+и всегда писать тип, который ожидаю
+
+public title: {text: string} = {text: 'курс по ангуляру'};
+
+***
+
+public getMoney(): number { //: number - значит то, что метод возвращает число
+    
+}
+
+(01:19:01)
+
