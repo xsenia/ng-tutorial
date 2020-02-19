@@ -87,4 +87,123 @@ public getMoney(): number { //: number - значит то, что метод в
 }
 
 (01:19:01)
+******************************************************
 
+TypeScript
+
+Функция может возвращать значение определенного типа, который еще называется типом функции. Возвращаемый тип функции ставится после списка параметров через двоеточие:
+function add(a: number, b: number): number {
+    return a + b;
+}
+let result1 = add(1, 2);
+
+                                           ***
+
+Если функция ничего не возвращает, то указывается тип void:
+function add(a: number, b: number): void {
+    console.log(a + b);
+}
+add(10, 20);
+
+                                           ***
+
+В принципе мы можем и не указывать тип, тогда он будет выводиться неявно на основе возвращаемого значения:
+function add(a: number, b: number) {
+    return a + b;
+}
+let result = add(10, 20);
+
+                                           ***
+
+
+Чтобы иметь возможность передавать различное число значений в функцию, в TS некоторые параметры можно объявить как необязательные. Необязательные параметры должны быть помечены вопросительным знаком ?. Причем необязательные параметры должны идти после обязательных:
+
+function getName(firstName: string, lastName?: string) {
+    if (lastName)
+        return firstName + " " + lastName;
+    else
+        return firstName;
+}
+  
+let name1 = getName("Иван", "Кузнецов");
+console.log(name1); // Иван Кузнецов
+
+                                           ***
+
+Параметры по умолчанию позволяют задать начальное значение. И если для такого параметра не передается значение, то он использует значение по умолчанию:
+function getName(firstName: string, lastName: string="Иванов") {
+     
+    return firstName + " " + lastName;
+}
+ 
+let name1 = getName("Иван", "Кузнецов");
+console.log(name1); // Иван Кузнецов
+
+                                           ***
+
+Если же необходимо, чтобы функция принимала набор однотипных параметров, то используется знак многоточия, после которого идет массив:
+function addNumbers(firstNumber: number, ...numberArray: number[]): number {
+      
+    let result = firstNumber;
+    for (let i = 0; i < numberArray.length; i++) {
+        result+= numberArray[i];
+    }
+    return result;
+}
+  
+let num1 = addNumbers(3, 7, 8);
+console.log(num1); // 18
+  
+let num2 = addNumbers(3, 7, 8, 9, 4);
+console.log(num2); // 31
+
+                                           ***
+
+class User {
+ 
+    id: number;
+    name: string;
+    getInfo(): string {
+        return "id:" + this.id + " name:" + this.name;
+    }
+}
+
+let tom: User = new User();
+tom.id = 1;
+tom.name = "Tom";
+console.log(tom.getInfo());
+
+                                           ***
+
+Кроме обычных функций классы имеют специальные функции - конструкторы, которые определяются с помощью ключевого слова constructor. Конструкторы выполняют начальную инициализацию объекта. Например, добавим в класс User конструктор:
+class User {
+ 
+    id: number;
+    name: string;
+    constructor(userId: number, userName: string) {
+ 
+        this.id = userId;
+        this.name = userName;
+    }
+    getInfo(): string {
+        return "id:" + this.id + " name:" + this.name;
+    }
+}
+ 
+let tom: User = new User(1, "Tom");
+console.log(tom.getInfo());
+tom.id = 4;
+
+                                           ***
+
+Если к свойствам и функциям классов не применяется модификатор, то такие свойства и функции расцениваются как будто они определены с модификатором public. То есть следующее определение класса:
+
+class User {
+     
+    name: string; //=== public name: string;
+    year: number;
+}
+                                           ***
+
+https://www.youtube.com/watch?v=nyIpDs2DJ_c
+                                           ***
