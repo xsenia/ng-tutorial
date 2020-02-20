@@ -86,8 +86,76 @@ public getMoney(): number { //: number - значит то, что метод в
     
 }
 
+
 (01:19:01)
+
 ******************************************************
+
+(01:53)
+
+чтобы все не грузить в app.module.ts
+сделать shared.module.ts
+
+его заимпортить в src\app\app.module.ts
+imports: [
+    ...
+    SharedModule
+  ],
+
+в shared
+import { MatToolbarModule } from '@angular/material';
+imports: [
+    ...
+    MatToolbarModule 
+  ],
+exports: [
+	MatToolbarModule
+]
+
+в shared можно не делать import
+оставить только:
+import { NgModule } from '@angular/core';
+import { MatToolbarModule, MatSidenavModule } from '@angular/material';
+@NgModule({  
+  exports: [
+    MatToolbarModule,
+    MatSidenavModule
+  ]
+})
+export class SharedModule { }
+
+
+https://material.angular.io/guide/getting-started
+
+Install Angular Material
+
+ng add @angular/material
+
+Иконки добавятся сами <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+в src\index.html
+
+можно добавить в src\app\header\header.component.html
+<mat-toolbar></mat-toolbar>
+
+***
+
+Локальная ссылка шаблона:
+#drawer
+
+***
+
+(02:19:18)
+
+
+
+
+
+
+
+
+
+
+
 
 TypeScript
 
